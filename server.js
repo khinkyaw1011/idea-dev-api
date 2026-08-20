@@ -13,7 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 connectDB();
 // Middleware 
-const allowedOrigins = ['http://localhost:3001'];
+const allowedOrigins = ['http://localhost:3001','idea-dev-gbwoc6kq4-khinkyaw1011s-projects.vercel.app'];
 app.use(cors({
   origin: allowedOrigins,
   credentials: true
