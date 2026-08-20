@@ -13,7 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 connectDB();
 // Middleware 
-const allowedOrigins = ['http://localhost:3001','idea-dev-gbwoc6kq4-khinkyaw1011s-projects.vercel.app'];
+const allowedOrigins = ['http://localhost:3001','https://idea-dev-ui.vercel.app'];
 app.use(cors({
   origin: allowedOrigins,
   credentials: true
@@ -21,10 +21,10 @@ app.use(cors({
 // Body Parsing Middlewares
 app.use(express.json()); // Raw JSON Data များ ဖတ်ရန်
 app.use(express.urlencoded({ extended: true })); // Form Encoded Data များ ဖတ်ရန်
+app.use(cookieParser());
 // Ideas Route ထည့်သွင်းခြင်း
 app.use('/api/ideas', ideaRouter);
 app.use('/api/auth', authRouter);
-app.use(cookieParser());
 // 404 Fallback Middleware
 app.use((req, res, next) => {
   const error = new Error(`Not Found - ${req.originalUrl}`);
